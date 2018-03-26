@@ -1,4 +1,4 @@
-CliBuilder cliBuilder = new CliBuilder(usage: 'groovy GroovyTipsAndTricksDemo <exampleName>')
+CliBuilder cliBuilder = new CliBuilder(usage: 'groovy GroovyTipsAndTricksPt1Demo <exampleName>')
 
 List arguments = cliBuilder.parse(args).arguments()
 
