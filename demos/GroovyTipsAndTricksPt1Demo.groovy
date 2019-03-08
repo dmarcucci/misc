@@ -1,3 +1,5 @@
+import groovy.cli.commons.CliBuilder
+
 CliBuilder cliBuilder = new CliBuilder(usage: 'groovy GroovyTipsAndTricksPt1Demo <exampleName>')
 
 List arguments = cliBuilder.parse(args).arguments()
@@ -97,11 +99,15 @@ if (arguments.size() == 1) {
             example += "\"\$number\" instanceof Integer: ${"$number" instanceof Integer}\n"
             example += "\"\$number\" instanceof GString: ${"$number" instanceof GString}\n"
             break
-        case 'with?':
-        case 'without?':
+        case 'with ?':
+        case 'without ?':
             example += "Integer nullVariable = $nullVariable\n"
             if (exampleName.startsWith('without')) {
-                example += "nullVariable.intValue(): ${nullVariable.intValue()}\n"
+                try {
+                    example += "nullVariable.intValue(): ${nullVariable.intValue()}\n"
+                } catch (Exception e) {
+                    example += "$e\n"
+                }
             } else {
                 example += "nullVariable?.intValue(): ${nullVariable?.intValue()}\n"
             }
@@ -221,7 +227,7 @@ if (arguments.size() == 1) {
             example += "listOfIntegers.min(): ${listOfIntegers.min()}\n"
             break
         default:
-            println "exampleName $exampleName not found"
+            println "exampleName '$exampleName' not found"
             return
     }
 
