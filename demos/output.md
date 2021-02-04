@@ -195,7 +195,7 @@ Example: findResults
 --------------------
 map = [a:1, b:2, c:3, d:4, e:5]
 
-map.findResults { k, v -> if (v % 2 != 0) { v - 2 > 1 ? v * "$v" : null } } }: [ccc, eeeee]
+map.findResults { k, v -> if (v % 2 != 0) { v - 2 >= 1 ? v * "$v" : null } } }: [ccc, eeeee]
 
 ------------------------------------
 

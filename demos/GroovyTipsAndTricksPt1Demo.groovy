@@ -145,7 +145,7 @@ if (arguments.size() == 1) {
             break
         case 'findResults':
             example += "map = $map\n"
-            example += "map.findResults { k, v -> if (v % 2 != 0) { v - 2 > 1 ? v * \"\$v\" : null } } }: " +
+            example += "map.findResults { k, v -> if (v % 2 != 0) { v - 2 >= 1 ? v * \"\$v\" : null } } }: " +
                     "${map.findResults { k, v -> if (v % 2 != 0) { v - 2 >= 1 ? k * v : null } } }\n\n"
             example += "listOfList = $listOfList\n"
             example += "listOfList.findResults { if (it.sum() >= 7) { it.sum() == 11 ? 'eleven' : 'seven' } }: " +
